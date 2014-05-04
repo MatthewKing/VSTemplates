@@ -5,8 +5,8 @@ This repository contains some overrides for the default Visual Studio templates,
 
 Installation
 ------------
-1. Clone the repository.
-2. Run the appropriate Powershell script from the `install` directory.
+1. Run the appropriate Powershell script from the `install` directory.
+2. That's it. There is no step 2.
 
 License and Copyright
 ---------------------
