@@ -44,6 +44,25 @@ Write-Host "Installed new 'Class.vstemplate'."
 Write-Host "Done."
 Write-Host
 
+# Install web Class item template.
+Write-Host "Installing web Class item template..."
+if ((Test-Path "$ItemTemplatesDirectory\WebClass\Class.cs") -and !(Test-Path "$ItemTemplatesDirectory\WebClass\Class.cs.original"))
+{
+    Move-Item "$ItemTemplatesDirectory\WebClass\Class.cs" "$ItemTemplatesDirectory\WebClass\Class.cs.original"
+    Write-Host "Backed up 'Class.cs' as 'Class.cs.original'."
+}
+if ((Test-Path "$ItemTemplatesDirectory\WebClass\WebClass.vstemplate") -and !(Test-Path "$ItemTemplatesDirectory\WebClass\WebClass.vstemplate.original"))
+{
+    Move-Item "$ItemTemplatesDirectory\WebClass\WebClass.vstemplate" "$ItemTemplatesDirectory\WebClass\WebClass.vstemplate.original"
+    Write-Host "Backed up 'WebClass.vstemplate' as 'WebClass.vstemplate.original'."
+}
+Copy-Item "$SourceDirectory\WebClass.cs" "$ItemTemplatesDirectory\WebClass\Class.cs"
+Write-Host "Installed new 'Class.cs'."
+Copy-Item "$SourceDirectory\WebClass.vstemplate" "$ItemTemplatesDirectory\WebClass\WebClass.vstemplate"
+Write-Host "Installed new 'WebClass.vstemplate'."
+Write-Host "Done."
+Write-Host
+
 # Install Interface item template.
 Write-Host "Installing Interface item template..."
 if ((Test-Path "$ItemTemplatesDirectory\Interface\Interface.cs") -and !(Test-Path "$ItemTemplatesDirectory\Interface\Interface.cs.original"))
