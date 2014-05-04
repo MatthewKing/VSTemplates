@@ -1,12 +1,12 @@
 # Get the ID and security principal of the current user account.
-$myWindowsID = [System.Security.Principal.WindowsIdentity]::GetCurrent()
-$myWindowsPrincipal = New-Object System.Security.Principal.WindowsPrincipal($myWindowsID)
+$windowsID = [System.Security.Principal.WindowsIdentity]::GetCurrent()
+$windowsPrincipal = New-Object System.Security.Principal.WindowsPrincipal($windowsID)
 
 # Get the security principal for the Administrator role
 $adminRole = [System.Security.Principal.WindowsBuiltInRole]::Administrator
      
 # Check to see if we are currently running "as Administrator".
-if (!($myWindowsPrincipal.IsInRole($adminRole)))
+if (!($windowsPrincipal.IsInRole($adminRole)))
 {
     # Relaunch as administrator.
     $psi = New-Object System.Diagnostics.ProcessStartInfo "PowerShell"
@@ -64,6 +64,6 @@ Write-Host "Done."
 Write-Host
 
 # Rebuild template cache.
-Write-Host "Rebuilding devenv template cache..."
+Write-Host "Rebuilding Visual Studio template cache..."
 devenv /installvstemplates | Out-Null
 Write-Host "Done."
