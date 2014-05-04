@@ -1,0 +1,21 @@
+# build folders
+[Bb]in/
+[Oo]bj/
+
+# build results
+[Dd]ebug/
+[Rr]elease/
+
+# user-specific files
+*.suo
+*.user
+*.sln.docstates
+
+# ncrunch
+*.ncrunch*
+
+# nuget
+packages/
+
+# other
+*.[Cc]ache
